@@ -128,8 +128,8 @@ class LinkedList:
             tmp = self.get(index - 1)
             new_node.next = tmp.next
             tmp.next = new_node
-            self.length += 1
-            return True
+        self.length += 1
+        return True
  
 
 #  adding: return True or False
@@ -148,8 +148,8 @@ class LinkedList:
             target = tmp.next # O(1)
             tmp.next = target.next
             target.next = None
-            self.length -= 1
-            return target
+        self.length -= 1
+        return target
 
     def reverse(self):
         tmp = self.head
