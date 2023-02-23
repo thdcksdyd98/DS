@@ -29,3 +29,33 @@ class DoublyLinkedList:
         self.length += 1
         return True
 
+    def pop(self):
+        if self.length == 0:
+            return None
+        else:
+            tmp = self.tail
+            self.tail = self.tail.prev
+            self.tail.next = None
+            tmp.prev = None
+            self.length -= 1
+            if self.length == 0:
+                self.head = None
+                self.tail = None
+        return tmp
+
+    def prepend(self, value):
+        new_node = Node(value)
+        if self.length == 0:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            self.head.prev = new_node
+            new_node.next = self.head
+            self.head = new_node
+            self.length += 1
+        return True
+
+        
+
+
+
