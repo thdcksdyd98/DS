@@ -74,7 +74,7 @@ class LinkedList:
             target.next = None
             self.length -= 1
             if self.length == 0:
-                # self.head = None ;already equals to None if there were only one node. 
+                # self.head = None; already equals to None if there were only one node. 
                 self.tail = None
         return target
 

@@ -52,8 +52,68 @@ class DoublyLinkedList:
             self.head.prev = new_node
             new_node.next = self.head
             self.head = new_node
+        self.length += 1
+        return True
+
+    def pop_first(self):
+        if self.length == 0:
+            return None
+        else:
+            target = self.head
+            self.head = self.head.next
+            target.next = None
+            self.length -= 1
+            if self.length == 0:
+                self.tail = None
+        return target
+
+    def get(self, index):
+        if index < 0 or index >= self.length:
+            return None
+        else:
+            '''
+            tmp = self.head
+            for _ in range(index):
+                tmp = tmp.next
+
+            # still works but not efficient
+            '''
+            if index < self.length / 2:
+                tmp = self.head
+                for _ in range(index):
+                    tmp = tmp.next
+            else:
+                tmp = self.tail
+                for _ in range(self.length - 1, index, -1):
+                    tmp = tmp.prev 
+        return tmp
+
+    def set(self, index, value):
+        tmp = self.get(index)
+        if tmp != None:
+            tmp.value = value
+            return True
+        return False
+
+    def insert(self, index, value):
+        if index < 0 or index > self.length:
+            return False
+        elif index == 0:
+            return self.prepend(value)
+        elif index == self.length:
+            return self.append(value)
+        else:
+            new_node = Node(value)
+            start = self.get(self,index -1)
+            end = start.next
+            new_node.prev = start
+            new_node.next = end
+            start.next = new_node
+            end.prev = new_node
             self.length += 1
         return True
+
+
 
         
 
