@@ -36,7 +36,7 @@ class BinarySearchTree:
                     else:
                         tmp = tmp.right
                         
-    # Since it is a 'searching' process', checking other subtrees are not required. 
+    # Since it is a 'searching' process, checking other subtrees are not required. 
     # Thus, if the value is less or greater than the current node, the current node should be changed to left or right.
     
     def contains(self, value):
