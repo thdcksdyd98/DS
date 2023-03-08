@@ -11,3 +11,13 @@ def __r_contains(self,current_node, value):
 
 def r_contains(self,value):
     return self.__r_contains(self.root, value)
+
+def __r_insert(self, current_node, value):
+    if current_node == None:
+        return Node(value)
+    if value < current_node.value:
+        current_node.left = self.__r_insert(current_node.left, value)
+
+
+def r_insert(self, value):
+    self.__r_insert(self.root, value)
