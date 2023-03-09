@@ -17,7 +17,15 @@ def __r_insert(self, current_node, value):
         return Node(value)
     if value < current_node.value:
         current_node.left = self.__r_insert(current_node.left, value)
+    if value > current_node.value:
+        current_node.right = self.__r_insert(current_node.right, value)
+    return current_node
 
+# searching 'None' value with continuous switching (left and right)
+# when the 'None' value was found, creating a new node with input value and adding.
+# be aware of 'call stack'
 
 def r_insert(self, value):
+    if self.root == None:
+        self.root = Node(value)
     self.__r_insert(self.root, value)
