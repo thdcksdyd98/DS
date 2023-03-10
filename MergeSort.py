@@ -1,4 +1,5 @@
 # creating merge function (helper function) for merge sort
+# only works at sorted list
 def merge(list1, list2):
     combined = []
     i = j = 0
@@ -20,3 +21,36 @@ def merge(list1, list2):
         j += 1
     
     return combined
+
+
+# mergesort
+# 1. Breaks lists in half
+# 2. Base case: when len(the_list) is 1
+# 3. Uses merge() to put lists together
+
+def merge_sort(my_list):
+    if len(my_list) == 1:
+        return my_list
+    mid_index = int(len(my_list)/2)
+    left = merge_sort(my_list[:mid_index])
+    right = merge_sort(my_list[mid_index:])
+    # remember, when the function called return, the top of the call stack would pop.
+    # -> since merge() has return and we use return merge(left, right), should pop the call stack twice
+
+    return merge(left, right)
+
+# space complexity = O(n)
+# time complexity = O(nlogn)
+
+
+
+
+
+
+
+
+
+
+
+
+
