@@ -22,3 +22,33 @@ def selelction_sort(my_list):
             my_list[i] = my_list[min_index]
             my_list[min_index] = tmp
     return my_list
+
+# insertion sort
+# always starts from the second element (index = 1)
+
+def insertion_sort(my_list):
+    for i in range(1, len(my_list)):
+        tmp = my_list[i]
+        j = i - 1
+        while tmp < my_list[j] and j > -1:
+            my_list[j+1] = my_list[j]
+            my_list[j] = tmp
+            j -= 1
+            
+    return my_list
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
