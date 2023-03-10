@@ -29,3 +29,11 @@ def r_insert(self, value):
     if self.root == None:
         self.root = Node(value)
     self.__r_insert(self.root, value)
+
+# delete
+# 1. traverse the tree in order to find the node that is going to be deleted
+# 2. once the node was founded, delete the node
+# 3. what about the sub-tree?? -> connect the sub-tree with a node that was located above the deleted node.
+# 4. what if there are two sub-tree (left and right)??
+#               -> find the lowest value on the right hand side of sub-tree and copy it to the node that will be deleted
+#               -> once the node was copied, delete origianl node (which was located in right hand side of sub-tree)
